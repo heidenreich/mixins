@@ -1,0 +1,82 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class=no-js><!--<![endif]--><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>mixin</title><meta name=description content=""><meta name=viewport content="width=device-width"><!-- Place favicon.ico and apple-touch-icon.png in the root directory --><link rel=stylesheet href=styles/vendor.css><link rel=stylesheet href=styles/d784930e.main.css><body><!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]--><!-- MIXIN --><div class=container><div class=mixin-one><h1>Mixin One</h1><ul class=header-nav><li>Nav-One</li><li>Nav-Two</li><li>Nav-Three</li></ul><pre>@mixin horizontal-list($margin) {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    li {
+        display: inline-block;
+        position: relative;
+        margin: $margin;
+        padding: 0;
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}
+
+.header-nav {
+    @include horizontal-list (30px);
+    font-size: 25px;
+}
+                </pre></div><div class=mixin-two><h1>Mixin Two</h1><img class=circle-one src=http://files.myopera.com/arshamr/albums/685704/Beautiful%20Faces%20Around%20the%20World%20(15).jpg> <img class=circle-two src=http://thebellevuescene.com/wp-content/uploads/2010/10/BellevueFaces.jpg> <img class=circle-three src=http://www.redorbit.com/media/uploads/2013/08/famous-face-dementia-617x416.jpg><pre>@mixin avatar($width, $color) {
+  width: $width;
+  height: $width;
+  border-radius: $width/2;
+  background: $color;
+}
+ 
+.circle-one {
+  @include avatar(100px, blue);
+}
+
+.circle-two {
+  @include avatar(200px, green);
+}
+.circle-three {
+  @include avatar(100px, red);
+}
+                 </pre></div><div class="mixin=three"><h1>Mixin Three</h1><ul class=button-nav><li><div class=button-one>1</div></li><li><div class=button-two>2</div></li><li><div class=button-three>3</div></li></ul><pre>.button-nav {
+    @include horizontal-list (50px);
+}
+
+@mixin buttons ($height: 50px, $width: 100px, $background-color: gray, $color: white){
+    box-shadow: inset 0px 2px 2px #fff, 0px 2px 2px gray;
+    position: relative;
+    border-style: solid;
+    border-width: thin;
+    border-color: rgb(125, 122, 119);
+    border-radius: 6px;
+    height: $height;
+    width: $width;
+    font-size: 24px;
+    color: $color;
+    line-height: $height;
+    text-align: center;
+    background-color: $background-color;
+        &:hover {
+            opacity: .5;
+        }
+
+} 
+
+
+
+.button-one {
+    @include buttons
+}
+
+.button-two {
+    @include buttons (50px, 50px, rgb(145, 150, 48), black);
+}
+
+.button-three {
+    @include buttons (100px, 50px, rgb(160, 39, 39), yellow);
+}
+                </pre></div></div><script src=scripts/78921647.vendor.js></script><!-- Google Analytics: change UA-XXXXX-X to be your site's ID. --><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');</script><script src=scripts/b6c3df09.main.js></script>
