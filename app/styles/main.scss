@@ -1,3 +1,21 @@
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+    align-items: center;
+
+}
+
+h1 {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.mixin {
+    border: 2px solid black;
+    padding: 20px;
+}
+
 // MIXIN ONE
 
 @mixin horizontal-list($margin) {
@@ -11,7 +29,7 @@
         margin: $margin;
         padding: 0;
         &:last-of-type {
-            margin-right: 100px;
+            margin-right: 0;
         }
     }
 }
@@ -30,6 +48,71 @@
   background: $color;
 }
  
-.circle {
-  @include circle(100px, black);
+.circle-one {
+  @include circle(100px, blue);
 }
+
+.circle-two {
+  @include circle(200px, green);
+}
+.circle-three {
+  @include circle(100px, red);
+}
+
+
+
+
+// MIXIN THREE
+
+
+@mixin buttons ($height: 100px, $width: 100px){
+    box-shadow: inset 0px 2px 2px #fff, 0px 2px 2px gray;
+    position: relative;
+    border-style: solid;
+    border-width: thin;
+    border-color: rgb(125, 122, 119);
+    border-radius: 6px;
+    height: $height;
+    width: $width;
+    font-size: 24px;
+    color: white;
+    line-height: $height;
+    text-align: center;
+    background: #1e5799; /* Old browsers */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #1e5799 0%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+        &:hover {
+            opacity: .8;
+        }
+
+} 
+
+.firstcontainer {
+    display: inline-block;
+    position: relative;
+    width: 400px;
+    height: 600px;
+}
+
+.onetext {
+    margin-top: 100px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    width:400px;
+    height: 600px;
+
+}
+
+.button-one {
+    @include buttons
+}
+
+.button-two {
+    @include buttons (100px, 50px)
+}
+
+.button-three {
+    @include buttons (50px, 100px);
+}
+
